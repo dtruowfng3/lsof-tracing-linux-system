@@ -1,7 +1,6 @@
 # Using lsof for tracing and analyzing performance on a Linux system
 
-<details>
-<summary>**1. `lsof` là gì?** </summary>
+## **1. `lsof` là gì?**
 
 **`lsof`** (Liệt kê các tệp đang mở - **L**i**s**t **O**pen **F**iles) là công cụ dòng lệnh trên Linux để hiển thị **tất cả tệp, socket, pipe, hoặc thiết bị** đang được mở bởi các tiến trình, lsof rất hữu ích cho việc:
 
@@ -11,7 +10,6 @@
 
 Vì `lsof` làm việc chặt chẽ với **kernel**, nên cần **phải được cấu hình đúng với hiệu điều hành muốn sử dụng**. Mọi thao tác trong Linux (đọc/ghi tệp, kết nối mạng, thậm chí thư mục) đều được xem là "tệp mở" và **`lsof`** giúp theo dõi chúng.
 
-</details>
 
 ## **2. Các tùy chọn phổ biến của `lsof`**
 
@@ -50,7 +48,7 @@ sudo apt update
 sudo apt install gcc make wget tar
 ```
 
-![image.png](image.png)
+![Step1](assetes/image.png)
 
 Bước 2: Tải mã nguồn `lsof`
 

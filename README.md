@@ -207,7 +207,7 @@ Nếu muốn thật sự remove log file thì thực hiện kill <PID> process v
 
 ![image.png](assets/9ce03d93-2d18-40df-b0d3-2d8635b42eda.png)
 
-https://youtu.be/IUWe5Zvnt88
+[Demo](https://youtu.be/IUWe5Zvnt88)
 
 1. Trường hợp 3: kiểm tra cổng mạng đang bị chiếm dụng
 
@@ -281,9 +281,9 @@ sudo lsof -i nP | grep ESTABLISHED
 
 Tạo 1 python chiếm port 5000 trên 1 terminal, mở 1 terminal khác để giả lập 1 chương trình khác muốn dùng port 5000 nhưng  “OSError: [Errno 98] Address already in use” port 5000 đã bị chiếm dụng nên không thể tạo kết nối. Để khắc phục cần liệt kê sudo lsof -i :500 để xem PID nào chiếm port 5000, sau đó kill <PID> chiếm port 5000 để có thể dùng port 5000.
 
-https://www.youtube.com/watch?v=qxUoR0ewB6I
+[Demo](https://www.youtube.com/watch?v=qxUoR0ewB6I)
 
 ## 6. Tài liệu tham khảo
-[lsof documentation](https://lsof.readthedocs.io/en/latest/)
-[How to List Open Files in Linux | lsof Command - GeeksforGeeks](https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/)
+- [lsof documentation](https://lsof.readthedocs.io/en/latest/)
+- [How to List Open Files in Linux | lsof Command - GeeksforGeeks](https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/)
 

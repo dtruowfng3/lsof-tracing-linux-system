@@ -48,7 +48,7 @@ sudo apt update
 sudo apt install gcc make wget tar
 ```
 
-![Step1](assets/image.png)
+![Step1](assets/image-0.png)
 
 Bước 2: Tải mã nguồn `lsof`
 
@@ -62,7 +62,7 @@ tar -xzf 4.99.4.tar.gz
 cd lsof-4.99.4
 ```
 
-![image.png](image%201.png)
+![Step2](assets/image-1.png)
 
 Bước 3. Biên dịch, cài đặt và kiểm tra phiên bản
 
@@ -72,7 +72,7 @@ make
 sudo make install
 ```
 
-![image.png](image%202.png)
+![Step3](assets/image-2.png)
 
 ```bash
 ./lsof -v
@@ -84,7 +84,7 @@ sudo chmod 755 /usr/bin/lsof
 lsof -v
 ```
 
-![image.png](image%203.png)
+![Step3](assets/image-3.png)
 
 ## **5. Sử dụng `lsof` để truy vết & phân tích hiệu năng Ubuntu - Linux**
 
@@ -115,7 +115,7 @@ Tóm tắt ý nghĩa các cột kết quả khi thực hiện các ví dụ th�
     sudo lsof /tmp/test.log
     ```
     
-    ![image.png](e6823036-ab9c-40ea-ae1e-d697fcdf1841.png)
+    ![image.png](assets/e6823036-ab9c-40ea-ae1e-d697fcdf1841.png)
     
     Ta thấy:
     
@@ -134,7 +134,7 @@ Tóm tắt ý nghĩa các cột kết quả khi thực hiện các ví dụ th�
         - txt: file đang thực thi từ /usr/bin/bash
         - mem: file được nạp vào các bộ nhớ
         
-        ![image.png](55e9784e-9524-4d80-acbc-b2f98db7b9ef.png)
+        ![image.png](assets/55e9784e-9524-4d80-acbc-b2f98db7b9ef.png)
         
     - TYPE: REG là regular file thường. Ngoài ra còn có các loại như:
         - DIR: biết process đang ở thư mục nào.
@@ -145,11 +145,11 @@ Tóm tắt ý nghĩa các cột kết quả khi thực hiện các ví dụ th�
     - SIZE/OFF: nếu TYPE là REG thì hiển thị kích thước file, còn TYPE là loại khác thì hiển thị Offset - vị trí đang đọc/ghi file. Trên ví dụ thì size là 0 vì file .log trống.
     - NODE: Inode number duy nhất cho mỗi file, 524361 đại diện cho ‘địa chỉ” của metadata (thông tin mô tả của file như là: quyền truy cập, chủ sở hữu, kích thước file, thời gian tạo/sửa đổi,…):
     
-    ![image.png](2dab4938-5e41-44bb-a5ea-bd422e207f65.png)
+    ![image.png](assets/2dab4938-5e41-44bb-a5ea-bd422e207f65.png)
     
     Có thể sử dụng Inode để tìm khi không nhớ tên file:
     
-    ![image.png](6de13eda-75e9-4ac9-9627-3717c12f0f27.png)
+    ![image.png](assets/6de13eda-75e9-4ac9-9627-3717c12f0f27.png)
     
     - NAME: đường dẫn tuyệt đối của file là **`/tmp/test.log`**
 2. Trường hợp 2: file đã bị gỡ nhưng vẫn đang được mở
@@ -160,7 +160,7 @@ Tình huống thông thường khi tạo rồi xóa 1 file log thì file hoàn t
 echo "init log" > app.log
 ```
 
-![image.png](fe6efe23-09bd-466d-bc1a-36b76bb571dd.png)
+![image.png](assets/fe6efe23-09bd-466d-bc1a-36b76bb571dd.png)
 
 Nhưng vẫn có trường hợp dù đã xóa file nhưng file vẫn đang được mở như sau:
 
@@ -195,7 +195,7 @@ rm app.log #Remove log file
 sudo lsof | grep app.log 
 ```
 
-![image.png](e4fe043b-a506-4a7a-8896-dcd4077fc080.png)
+![image.png](assets/e4fe043b-a506-4a7a-8896-dcd4077fc080.png)
 
 Dù đã remove file .log nhưng khi kiểm tra lại bằng lsof thì log file vẫn còn được giữ bởi process:
 
@@ -205,7 +205,7 @@ Dù đã remove file .log nhưng khi kiểm tra lại bằng lsof thì log file 
 
 Nếu muốn thật sự remove log file thì thực hiện kill <PID> process và kiểm tra lại lsof thì process không còn giữ file nữa:
 
-![image.png](9ce03d93-2d18-40df-b0d3-2d8635b42eda.png)
+![image.png](assets/9ce03d93-2d18-40df-b0d3-2d8635b42eda.png)
 
 https://youtu.be/IUWe5Zvnt88
 
@@ -221,7 +221,7 @@ sudo lsof -i[version][protocol][@hostname|address][service:port]
 sudo lsof -i #Liệt kê các kết nối mạng
 ```
 
-![image.png](image%204.png)
+![image.png](assets/image-4.png)
 
 - COMMAND: systemd-r là dịch vụ truy vấn DNS nội bộ (port 53), avahi-daemon multicast DNS (tự động phát hiện thiết bị cùng mạng LAN).
 - FD: firefox mở ra nhiều FD để kết nối HTTPS, truy cập file cache, pipe để giữa các tiến trình con.
@@ -235,19 +235,19 @@ sudo lsof -i #Liệt kê các kết nối mạng
 sudo lsof -i4 #Liệt kê kết nối IPv4 (hoặc IPv6)
 ```
 
-![image.png](4ea9b8b5-a480-4387-b08a-de8e37116404.png)
+![image.png](assets/4ea9b8b5-a480-4387-b08a-de8e37116404.png)
 
 ```bash
 sudo lsof -iTCP #Liệt kê kết nối TCP (hoặc UDP)
 ```
 
-![image.png](951f0b3b-76a2-45bd-aff9-5fbc7c7b6ab6.png)
+![image.png](assets/951f0b3b-76a2-45bd-aff9-5fbc7c7b6ab6.png)
 
 ```bash
 sudo lsof -i :443 #Liệt kê cổng 443 (HTTPS)
 ```
 
-![Ubuntu 64-bit-2025-06-23-21-56-38.png](189fffa8-f1d9-4b62-894a-0f5de332ea34.png)
+![Ubuntu 64-bit-2025-06-23-21-56-38.png](assets/189fffa8-f1d9-4b62-894a-0f5de332ea34.png)
 
 Một số kết hợp lọc chi tiết hơn:
 
@@ -255,13 +255,13 @@ Một số kết hợp lọc chi tiết hơn:
 sudo lsof -i4 -sTCP:LISTEN #Liệt kê kết nối IPv4 dùng TCP và đang dùng socket LISTEN
 ```
 
-![image.png](image%205.png)
+![image.png](assets/image-5.png)
 
 ```bash
 sudo lsof -i4 -nP #Liệt kê kết nối IPv4 và không resolve hostname (n), port service (P)
 ```
 
-![image.png](6015bbbb-209f-4720-98a3-e0653ebb73d7.png)
+![image.png](assets/6015bbbb-209f-4720-98a3-e0653ebb73d7.png)
 
 Tình huống dùng lsof để khắc phục sự cố:
 
@@ -277,18 +277,13 @@ sudo lsof -i nP | grep ESTABLISHED
 
 1. Giả lập tình huống chiếm dụng port 5000 làm cho không thể tạo 1 kết nối khác với port 5000:
 
-![image.png](bf9ed2c9-9619-481e-a76b-ce20c3abf561.png)
+![image.png](assets/bf9ed2c9-9619-481e-a76b-ce20c3abf561.png)
 
 Tạo 1 python chiếm port 5000 trên 1 terminal, mở 1 terminal khác để giả lập 1 chương trình khác muốn dùng port 5000 nhưng  “OSError: [Errno 98] Address already in use” port 5000 đã bị chiếm dụng nên không thể tạo kết nối. Để khắc phục cần liệt kê sudo lsof -i :500 để xem PID nào chiếm port 5000, sau đó kill <PID> chiếm port 5000 để có thể dùng port 5000.
 
 https://www.youtube.com/watch?v=qxUoR0ewB6I
 
 ## 6. Tài liệu tham khảo
-
-https://lsof.readthedocs.io/en/latest/
-
-https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/
-
+[lsof documentation](https://lsof.readthedocs.io/en/latest/)
 [How to List Open Files in Linux | lsof Command - GeeksforGeeks](https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/)
 
-https://www.youtube.com/watch?v=dUQV9WS-A3Y

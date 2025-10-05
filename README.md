@@ -48,7 +48,7 @@ sudo apt update
 sudo apt install gcc make wget tar
 ```
 
-![Step1](assetes/image.png)
+![Step1](assets/image.png)
 
 Bước 2: Tải mã nguồn `lsof`
 
